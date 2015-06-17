@@ -2,7 +2,7 @@ FROM quay.io/3scale/base:trusty
 
 MAINTAINER Michal Cichra <michal@3scale.net> # 2014-05-21
 
-# all the apt-gets in one command & delete the cache after installing
+# have to install wget first to download the key for dotdeb
 RUN apt-install wget
 RUN wget -qO- http://www.dotdeb.org/dotdeb.gpg | apt-key add - \
  && echo 'deb http://packages.dotdeb.org squeeze all' > /etc/apt/sources.list.d/redis.list \
